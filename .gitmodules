@@ -1,3 +1,0 @@
-[submodule "AutoAWQ_kernels"]
-	path = AutoAWQ_kernels
-	url = https://github.com/casper-hansen/AutoAWQ_kernels.git
