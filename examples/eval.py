@@ -22,10 +22,12 @@ def run_eval(
     # Load model
     if len(tasks) == 1 and tasks[0] != "mmlu" and tasks[0] != "librispeech":
         if task_use_pretrained:
-            model = AutoAWQForCausalLM.from_pretrained(model_path, safetensors=pretrained_safetensors)
+            # model = AutoAWQForCausalLM.from_pretrained(model_path, safetensors=pretrained_safetensors)
+
+            from transformers import AutoModelForCausalLM
+            model = AutoModelForCausalLM.from_pretrained(model_path).to(device)
         else:
             model = AutoAWQForCausalLM.from_quantized(model_path, quant_file, fuse_layers=False)
-
         tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 
     # Load adapter
