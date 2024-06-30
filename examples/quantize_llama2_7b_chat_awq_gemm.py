@@ -2,7 +2,7 @@ from awq import AutoAWQForCausalLM
 from transformers import AutoTokenizer
 
 model_path = 'meta-llama/Llama-2-7b-chat-hf'
-quant_path = 'llama-2-7b-chat-hf-awq-gemm'
+quant_path = '../models/llama-2-7b-chat-hf-awq-gemm'
 quant_config = { "zero_point": True, "q_group_size": 128, "w_bit": 4, "version": "GEMM" }
 
 # Load model
